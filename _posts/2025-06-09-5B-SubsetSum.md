@@ -1,26 +1,65 @@
 ---
-title: "Subset Sum Problem"
+title: "🔢Subset Sum Problem"
 date: 2025-06-09
 categories: [problem]
 tags: [problem, subsetSum, knapsackproblem]
 ---
 
-Subset Sum Problem adalah masalah dalam teori kompleksitas yang mencari apakah ada subset dari himpunan bilangan bulat yang jumlahnya sama dengan angka target tertentu.
+Subset Sum Problem adalah salah satu masalah fundamental dalam ilmu komputer yang berkaitan dengan teori kompleksitas dan kriptografi.
+Definisi Masalah
 
-Masalah ini termasuk dalam kategori NP-Complete, yang berarti sulit untuk diselesaikan secara efisien, tetapi mudah untuk diverifikasi jika solusinya sudah diketahui.
+Diberikan himpunan bilangan bulat tidak kosong dan sebuah angka target m, carilah subset (subhimpunan) yang jumlahnya sama dengan m.
 
-Pendekatan Penyelesaian:
+Contoh Sederhana
+- Input: Himpunan = {3, 34, 4, 12, 5, 2}, Target = 9
+- Output: Ya, ada subset {4, 5} yang jumlahnya = 9
 
-Brute Force: Menggunakan pendekatan rekursif untuk mencoba semua kombinasi subset. Kompleksitas waktu adalah O(2^n).
+### 🔄 Variasi Masalah
+🔢 Subset Sum dengan Elemen Negatif
+Deskripsi
 
-Dynamic Programming: Menggunakan tabel untuk menyimpan hasil subproblem yang sudah dihitung untuk meningkatkan efisiensi. Kompleksitas waktu adalah O(n * T).
+Masalah klasik biasanya mengasumsikan semua elemen positif, namun dalam variasi ini elemen bisa negatif.
+Contoh
 
-Variasi Masalah:
+- S = {-7, -3, -2, 5, 8}, target = 0
+- Solusi: {-3, -2, 5} = 0
 
-Subset Sum dengan Elemen Negatif: Memerlukan penyesuaian pada metode yang digunakan.
+Konsekuensi
 
-Counting Subsets: Menghitung jumlah subset yang memenuhi target.
+- Pendekatan Dynamic Programming standar tidak cukup
+- Indeks array tidak bisa negatif
+- Memerlukan penyesuaian implementasi
 
-Closest Subset Sum: Mencari subset yang jumlahnya paling dekat dengan target jika tidak ada subset yang tepat.
+🧮 Counting Subsets
+Deskripsi
 
-Subset Sum adalah kasus khusus dari 0/1 Knapsack, di mana setiap elemen memiliki berat yang sama dengan nilai.
+Menghitung berapa banyak subset yang memenuhi jumlah target, bukan hanya mencari apakah ada.
+
+Contoh
+- S = {2, 3, 5, 6, 8, 10}, sum = 10
+- Pertanyaan: Berapa subset yang jumlahnya 10?
+- Solusi dengan DP
+dp[i][j] = banyaknya subset dari elemen 0..i-1 yang totalnya j
+Rumus: dp[i][j] = dp[i-1][j] + dp[i-1][j - arr[i-1]]
+
+🎯 Closest Subset Sum
+Deskripsi
+
+Jika tidak ada subset dengan jumlah tepat, cari subset dengan jumlah terdekat dengan target.
+
+Contoh
+
+- S = {1, 3, 4, 8}, target = 10
+- Kemungkinan: {1,3,4}=8, {3,8}=11, {1,8}=9
+- Terdekat ke 10: 9 dan 11
+
+Metode Penyelesaian
+- Backtracking
+- Dynamic Programming
+- Meet-in-the-middle
+
+🎒 Hubungan dengan 0/1 Knapsack Problem
+
+- Sama-sama memilih subset dari elemen
+- Sama-sama menggunakan Dynamic Programming
+- Sama-sama memiliki batasan kapasitas/target

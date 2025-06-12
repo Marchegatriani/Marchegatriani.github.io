@@ -1,19 +1,49 @@
 ---
-title: "Rat In Maze"
+title: "🐭Rat In Maze"
 date: 2025-06-09
 categories: [problem, algorithm]
 tags: [problem, algorithm]
 ---
 
-Algoritma Rat in a Maze adalah metode klasik dalam pemrograman rekursif dan pencarian jalur yang menggunakan teknik backtracking untuk menemukan jalan keluar dari labirin. Tujuannya adalah mencari jalur dari titik awal (0,0) ke tujuan dalam labirin yang berisi jalan (1) dan dinding (0).
+Rat in Maze Algorithm adalah salah satu contoh klasik dalam pemrograman rekursif dan pencarian jalur (pathfinding). Algoritma ini menggunakan metode backtracking untuk mencari semua kemungkinan jalur dari titik awal ke titik tujuan.
+🔍 Konsep Utama
 
-Langkah-langkah:
+Algoritma ini mencoba semua kemungkinan jalur dan kembali ke langkah sebelumnya jika jalur tersebut buntu. Tujuannya adalah mencari semua solusi atau salah satu jalur yang memungkinkan tikus mencapai tujuan.
 
-Mulai dari posisi awal dan periksa apakah posisi tersebut valid dan belum dikunjungi.
+### 🎮 Representasi Visual
+- 🟢 = Jalan (dapat dilewati)
+- 🔴 = Dinding (tidak dapat dilewati)
+- 🐭 = Posisi tikus
+- 🎯 = Tujuan
 
-Tandai posisi sebagai bagian dari solusi dan coba bergerak ke arah yang mungkin (kanan atau bawah).
+### Masalah Umum yang Diselesaikan
+- 🗺️ Pencarian Jalur: Bagaimana mencari jalan keluar dari labirin yang kompleks?
+- 🧠 Pengambilan Keputusan: Bagaimana program bisa "berpikir" saat harus memilih banyak jalur?
 
-Jika tidak ada jalur yang valid, mundur (backtrack) ke posisi sebelumnya.
+### 🌍 Manfaat di Dunia Nyata
+- AplikasiNavigasiGPS untuk mencari rute tercepat
+- Robotika: Robot menemukan jalan dalam lingkungan
+- Game Development: AI karakter mencari jalur optimal
+- Puzzle Solving: Menyelesaikan Sudoku dan teka-teki logika
 
-Manfaat:
-Digunakan dalam aplikasi dunia nyata seperti GPS dan robotika dan melatih logika rekursif dan pengambilan keputusan.
+### ⚙️ Cara Kerja Algoritma
+📝 Langkah-langkah Algoritma
+
+- 🚀 Mulai dari posisi awal (0,0)
+- ✅ Validasi posisi:
+
+Posisi dalam batas maze
+Posisi adalah jalan (bernilai 1)
+Posisi belum dikunjungi
+
+
+- 📍 Tandai posisi sebagai bagian dari solusi
+🎯 Cek tujuan: Jika mencapai tujuan, simpan jalur
+🔄 Eksplorasi rekursif ke semua arah yang valid
+↩️ Backtrack: Hapus tanda jika tidak ada jalur valid
+
+- 🎯 Urutan Prioritas Pergerakan
+1. Down (Bawah) ↓
+2. Right (Kanan) →
+3. Up (Atas) ↑
+4. Left (Kiri) ←
